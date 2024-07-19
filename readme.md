@@ -1,5 +1,6 @@
 MySQL query to combine responses of the Moodle quiz tool and H5P via xAPI, using the most recent attempts per user.
 
+```
 SET @course := [INSERT COURSE ID];
 (SELECT 
     course, quiz, userid, attempt, fraction, qtype, questionid, maxmark,  
@@ -89,3 +90,4 @@ UNION ALL
 FROM hvp_xapi_results AS xapi 
 JOIN hvp ON hvp.id = xapi.content_id
 WHERE course=@course AND interaction_type != ‘compound’)
+```
